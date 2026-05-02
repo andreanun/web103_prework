@@ -1,9 +1,16 @@
-import { useRoutes } from "react-router-dom";
+//import { useRoutes } from "react-router-dom";
+import CreatorCard from "./components/CreatorCard";
+import creatorList from "./creatorList.js";
+import "./App.css";
 
 function App() {
   return (
     <>
-      <div>Hello</div>
+      <div className="card-grid">
+        {creatorList.map((creator, index) => (
+          <CreatorCard key={index} creator={creator} />
+        ))}
+      </div>
     </>
   );
 }

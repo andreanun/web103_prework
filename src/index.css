@@ -1,0 +1,17 @@
+:root {
+  /* changes the primary color of all pico elements to a sleek purple */
+  --primary: #9b4dca;
+  --primary-hover: #7d3db0;
+}
+
+body {
+  background: linear-gradient(180deg, #111927 0%, #0b0f1a 100%);
+  min-height: 100vh;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}

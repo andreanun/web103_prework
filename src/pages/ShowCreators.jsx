@@ -1,36 +1,28 @@
-import { supabase } from "../client";
 import CreatorCard from "../components/CreatorCard";
-import { useState, useEffect } from "react";
 
-const ShowCreators = () => {
-  const [creators, setCreators] = useState([]);
-
-  useEffect(() => {
-    const fetchCreators = async () => {
-      const { data, error } = await supabase
-        .from("creators")
-        .select()
-        .order("created_at", { ascending: false });
-
-      if (error) {
-        console.error("Error fetching creators: ", error);
-      } else {
-        setCreators(data);
-      }
-    };
-    fetchCreators();
-  }, []);
-
+const ShowCreators = (props) => {
   return (
-    <maim className="container">
+    <main className="container">
       <div className="grid">
-        {creators && creators.length > 0 ? (
-          creators.map((item) => <CreatorCard key={item.id} {...item} />)
+        {props.creators && props.creators.length > 0 ? (
+          props.creators.map((creator) => (
+            <CreatorCard
+              key={creator.id}
+              id={creator.id}
+              name={creator.name}
+              url={creator.url}
+              description={creator.description}
+              imageURL={creator.imageURL}
+            />
+          ))
         ) : (
-          <h2>No creators found. Time to add some!</h2>
+          <article>
+            <h3>No Content Creators Found 😔</h3>
+            <p>Your Creatorverse is empty. Add someone new!</p>
+          </article>
         )}
       </div>
-    </maim>
+    </main>
   );
 };
 

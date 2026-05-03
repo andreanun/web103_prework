@@ -1,14 +1,31 @@
 import { useRoutes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { supabase } from "./client";
 import CreatorCard from "./components/CreatorCard";
 //import creatorList from "./creatorList.js";
-import ShowCreator from "./pages/ShowCreators.jsx";
+import ShowCreators from "./pages/ShowCreators";
 import AddCreator from "./pages/AddCreator";
+import EditCreator from "./pages/EditCreator";
 import ViewCreator from "./pages/EditCreator";
 import "./index.css";
 
 function App() {
+  const [creators, setCreators] = useState([]);
+
+  useEffect(() => {
+    const fetchCreators = async () => {
+      const { data } = await supabase
+        .from("creators")
+        .select()
+        .order("created_at", { ascending: false });
+
+      setCreators(data);
+    };
+    fetchCreators();
+  }, []);
+
   let element = useRoutes([
-    { path: "/", element: <ShowCreator /> },
+    { path: "/", element: <ShowCreator creators={creators} /> },
     { path: "/new ", element: <AddCreator /> },
     { path: "/view", element: <ViewCreator /> },
     { path: "/edit", element: <EditCreator /> },

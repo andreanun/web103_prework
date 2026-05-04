@@ -35,6 +35,9 @@ const ViewCreator = () => {
       <article>
         <header>
           <h1>{creator.name}</h1>
+          <Link to={`/edit/${id}`} role="button" className="secondary">
+            Edit
+          </Link>
         </header>
 
         {creator.imageURL && (

@@ -24,8 +24,11 @@ const CreatorCard = ({ id, name, url, description, imageURL }) => {
       </header>
       <p>{description}</p>
       <footer>
-        <div>
-          <Link to={`/view/${id}`} role="button" Details></Link>
+        <div className="grid">
+          {" "}
+          <Link to={`/view/${id}`} role="button">
+            Details
+          </Link>
           <Link to={`/edit/${id}`} role="button" className="secondary">
             Edit
           </Link>

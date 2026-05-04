@@ -21,3 +21,11 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
+
+header {
+  background-image: url("path-to-your-banner.jpg");
+  background-size: cover;
+  color: white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 3rem;
+}

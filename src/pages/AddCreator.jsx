@@ -42,12 +42,12 @@ const AddCreator = () => {
           required
         />
 
-        <label htmlFor="url">Channel URL</label>
+        <label htmlFor="url">Instagram URL</label>
         <input
           type="url"
           id="url"
           name="url"
-          placeholder="https://youtube.com/..."
+          placeholder="https://www.instagram.com/..."
           onChange={handleChange}
           required
         />

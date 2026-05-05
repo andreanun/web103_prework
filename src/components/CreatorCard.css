@@ -1,4 +1,13 @@
+.creator-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Keeps all cards in a row the same height */
+  max-width: 400px;
+}
+
 .card-image {
+  width: 100%;
   height: 200px;
   background-size: cover;
   background-position: center;

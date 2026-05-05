@@ -6,7 +6,7 @@ import CreatorCard from "./components/CreatorCard";
 import ShowCreators from "./pages/ShowCreators";
 import AddCreator from "./pages/AddCreator";
 import EditCreator from "./pages/EditCreator";
-import ViewCreator from "./pages/EditCreator";
+import ViewCreator from "./pages/ViewCreator";
 import "./index.css";
 
 function App() {
@@ -25,10 +25,10 @@ function App() {
   }, []);
 
   let element = useRoutes([
-    { path: "/", element: <ShowCreator creators={creators} /> },
-    { path: "/new ", element: <AddCreator /> },
-    { path: "/view", element: <ViewCreator /> },
-    { path: "/edit", element: <EditCreator /> },
+    { path: "/", element: <ShowCreators creators={creators} /> },
+    { path: "/new", element: <AddCreator /> },
+    { path: "/view/:id", element: <ViewCreator /> },
+    { path: "/edit/:id", element: <EditCreator /> },
   ]);
   return <div className="App">{element}</div>;
 }

@@ -36,11 +36,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+👉🏿Here's a walkthrough of implemented required features:
+
+[![Video Walkthrough](https://img.youtube.com/vi/PmnxyO_P_8s/0.jpg)](https://youtu.be/PmnxyO_P_8s)
 
 <!-- Replace this with whatever GIF tool you used! -->
 
-GIF created with ... 👉🏿 GIF tool here
+GIF created with ... 👉🏿 Kap
 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS

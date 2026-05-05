@@ -42,7 +42,7 @@ const AddCreator = () => {
           required
         />
 
-        <label htmlFor="url">Instagram URL</label>
+        <label htmlFor="url">Social Media URL</label>
         <input
           type="url"
           id="url"

@@ -1,39 +1,21 @@
 import "./CreatorCard.css";
 import { Link } from "react-router-dom";
 
-const CreatorCard = ({ id, name, url, description, imageURL }) => {
+const CreatorCard = ({ id, name, description, imageURL }) => {
   return (
-    <article className="creator-card">
-      <div
-        className="card-image"
-        style={{
-          backgroundImage: `url(${imageURL || "https://via.placeholder.com/400x200?text=No+Image"})`,
-        }}
-      ></div>
-      <header>
+    <article
+      className="creator-card"
+      style={{ backgroundImage: `url(${imageURL})` }}
+    >
+      <div className="card-actions">
+        <Link to={`/view/${id}`} title="Details">i</Link>
+        <Link to={`/edit/${id}`} title="Edit">✎</Link>
+      </div>
+
+      <div className="card-content">
         <h3>{name}</h3>
-        <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          role="button"
-          className="outline contrast"
-        >
-          Visit Channel
-        </a>
-      </header>
-      <p>{description}</p>
-      <footer>
-        <div className="grid">
-          {" "}
-          <Link to={`/view/${id}`} role="button">
-            Details
-          </Link>
-          <Link to={`/edit/${id}`} role="button" className="secondary">
-            Edit
-          </Link>
-        </div>
-      </footer>
+        <p className="description">{description}</p>
+      </div>
     </article>
   );
 };

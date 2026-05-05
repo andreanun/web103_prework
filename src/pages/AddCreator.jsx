@@ -38,7 +38,6 @@ const AddCreator = () => {
           type="text"
           id="name"
           name="name"
-          placeholder="e.g. Ji Ye-eun"
           onChange={handleChange}
           required
         />
@@ -57,12 +56,11 @@ const AddCreator = () => {
         <textarea
           id="description"
           name="description"
-          placeholder="What makes them special?"
           onChange={handleChange}
           required
         ></textarea>
 
-        <label htmlFor="imageURL">Image URL (Optional)</label>
+        <label htmlFor="imageURL">Image URL</label>
         <input
           type="text"
           id="imageURL"

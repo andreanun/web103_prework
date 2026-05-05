@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { supabase } from "../client";
 
 const ViewCreator = () => {
@@ -31,33 +31,40 @@ const ViewCreator = () => {
     );
 
   return (
-    <main className="container">
-      <article>
-        <header>
-          <h1>{creator.name}</h1>
-          <Link to={`/edit/${id}`} role="button" className="secondary">
-            Edit
-          </Link>
-        </header>
+    <main className="container" style={{ maxWidth: "700px", margin: "3rem auto", padding: "0 1rem" }}>
+      {creator.imageURL && (
+        <img
+          src={creator.imageURL}
+          alt={creator.name}
+          style={{
+            width: "100%",
+            height: "350px",
+            objectFit: "cover",
+            borderRadius: "12px",
+            marginBottom: "1.5rem",
+          }}
+        />
+      )}
 
-        {creator.imageURL && (
-          <img
-            src={creator.imageURL}
-            alt={creator.name}
-            style={{ maxWidth: "400px" }}
-          />
-        )}
+      <h1 style={{ color: "#5bc8e8", textTransform: "uppercase", letterSpacing: "2px" }}>
+        {creator.name}
+      </h1>
 
-        <p>
-          <strong>Description:</strong> {creator.description}
-        </p>
+      <p style={{ color: "rgba(255,255,255,0.8)", lineHeight: "1.7", marginBottom: "2rem" }}>
+        {creator.description}
+      </p>
 
-        <footer>
-          <a href={creator.url} target="_blank" rel="noreferrer" role="button">
-            Visit Channel
-          </a>
-        </footer>
-      </article>
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <a href={creator.url} target="_blank" rel="noreferrer" role="button">
+          Visit Channel
+        </a>
+        <Link to={`/edit/${id}`} role="button" className="secondary">
+          Edit
+        </Link>
+        <Link to="/" role="button" className="outline">
+          Back
+        </Link>
+      </div>
     </main>
   );
 };

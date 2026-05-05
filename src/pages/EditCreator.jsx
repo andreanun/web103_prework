@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { supabase } from "../client";
 
-const EditCreator = () => {
+const EditCreator = ({ onUpdate }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -53,6 +53,7 @@ const EditCreator = () => {
     if (error) {
       console.error("Couldn't update creator: ", error);
     } else {
+      await onUpdate();
       navigate("/");
     }
   };
@@ -65,6 +66,7 @@ const EditCreator = () => {
     if (error) {
       console.error("Error deleting creator:", error);
     } else {
+      await onUpdate();
       navigate("/"); //return to the home page after deletion
     }
   };

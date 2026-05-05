@@ -29,7 +29,7 @@ function App() {
     { path: "/", element: <ShowCreators creators={creators} /> },
     { path: "/new", element: <AddCreator onAdd={fetchCreators} /> },
     { path: "/view/:id", element: <ViewCreator /> },
-    { path: "/edit/:id", element: <EditCreator /> },
+    { path: "/edit/:id", element: <EditCreator onUpdate={fetchCreators} /> },
   ]);
   return <div className="App">{element}</div>;
 }

@@ -4,28 +4,15 @@ import { Link } from "react-router-dom";
 const ShowCreators = (props) => {
   return (
     <>
-      <header
-        className="container"
-        style={{ textAlign: "center", padding: "2rem 0" }}
-      >
-        <h1>CREATORVERSE</h1>
-        <div className="grid">
-          <div></div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/" role="button" className="outline">
-                  View All
-                </Link>
-              </li>
-              <li>
-                <Link to="/new" role="button">
-                  Add a Creator
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <div></div>
+      <header className="hero">
+        <h1 className="hero-title">CREATORVERSE</h1>
+        <div className="hero-buttons">
+          <Link to="/" role="button" className="hero-btn">
+            VIEW ALL CREATORS
+          </Link>
+          <Link to="/new" role="button" className="hero-btn">
+            ADD A CREATOR
+          </Link>
         </div>
       </header>
       <main className="container">

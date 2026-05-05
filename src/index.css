@@ -1,5 +1,4 @@
 :root {
-  /* changes the primary color of all pico elements to a sleek purple */
   --primary: #9b4dca;
   --primary-hover: #7d3db0;
 }
@@ -21,11 +20,43 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
-
-header {
-  background-image: url("https://creatorvese-production.up.railway.app/static/media/banner.de5659898d3bfc5eb8ea.jpg");
+.hero {
+  background-image: url("https://wallpapers.com/images/hd/silhouetted-los-angeles-skyline-snpchiqr87uig1q3.jpg");
   background-size: cover;
-  color: white;
-  border-radius: 0 0 10px 10px;
+  background-position: center;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #111;
   margin-bottom: 3rem;
+}
+
+.hero-title {
+  color: white;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-family: "Arial Black", sans-serif;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero-btn {
+  background-color: #5b8bb3;
+  border-color: #5b8bb3;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.hero-btn:hover {
+  background-color: #4a7599;
+  border-color: #4a7599;
 }

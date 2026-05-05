@@ -57,6 +57,18 @@ const EditCreator = () => {
     }
   };
 
+  const deleteCreator = async (event) => {
+    event.preventDefault();
+
+    const { error } = await supabase.from("creators").delete().eq("id", id); //only delete the record matching this ID
+
+    if (error) {
+      console.error("Error deleting creator:", error);
+    } else {
+      navigate("/"); //return to the home page after deletion
+    }
+  };
+
   return (
     <main className="container">
       <h1>Edit Content Creator</h1>
@@ -102,8 +114,20 @@ const EditCreator = () => {
             onChange={handleChange}
           />
         </label>
-
-        <button type="submit">Update Creator</button>
+        <div className="grid">
+          <button type="submit">Update Creator</button>
+          <button
+            type="button"
+            className="secondary"
+            onClick={deleteCreator}
+            style={{
+              backgroundColor: "var(--del-color, #e53935)",
+              borderColor: "#e53935",
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </main>
   );

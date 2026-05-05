@@ -12,21 +12,22 @@ import "./index.css";
 function App() {
   const [creators, setCreators] = useState([]);
 
-  useEffect(() => {
-    const fetchCreators = async () => {
-      const { data } = await supabase
-        .from("creators")
-        .select()
-        .order("created_at", { ascending: false });
+  const fetchCreators = async () => {
+    const { data } = await supabase
+      .from("creators")
+      .select()
+      .order("created_at", { ascending: false });
 
-      setCreators(data);
-    };
+    setCreators(data);
+  };
+
+  useEffect(() => {
     fetchCreators();
   }, []);
 
   let element = useRoutes([
     { path: "/", element: <ShowCreators creators={creators} /> },
-    { path: "/new", element: <AddCreator /> },
+    { path: "/new", element: <AddCreator onAdd={fetchCreators} /> },
     { path: "/view/:id", element: <ViewCreator /> },
     { path: "/edit/:id", element: <EditCreator /> },
   ]);

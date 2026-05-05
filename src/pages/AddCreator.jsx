@@ -2,7 +2,7 @@ import { useState } from "react";
 import { supabase } from "../client";
 import { useNavigate } from "react-router-dom";
 
-const AddCreator = () => {
+const AddCreator = ({ onAdd }) => {
   const [creator, setCreator] = useState({
     name: "",
     url: "",
@@ -25,7 +25,8 @@ const AddCreator = () => {
     if (error) {
       console.log(error);
     } else {
-      navigate("/"); // send  user back home after successful add
+      await onAdd();
+      navigate("/");
     }
   };
 
